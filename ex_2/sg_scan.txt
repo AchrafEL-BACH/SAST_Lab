@@ -1,0 +1,177 @@
+                    
+                    
+┌──────────────────┐
+│ 13 Code Findings │
+└──────────────────┘
+                                        
+  [36m[22m[24m  1/XmlReader_Tests.cs [0m
+   ❯❯❱ csharp.dotnet-core.xxe.xml-dtd-allowed.xml-dtd-allowed
+          The application is using an XML parser that has not been safely configured. This might lead to XML  
+          External Entity (XXE) vulnerabilities when parsing user-controlled input. An attacker can include   
+          document type definitions (DTDs) or XIncludes which can interact with internal or external hosts.   
+          XXE can lead to other vulnerabilities, such as Local File Inclusion (LFI), Remote Code Execution    
+          (RCE), and Server-side request forgery (SSRF), depending on the application configuration. An       
+          attacker can also use DTDs to expand recursively, leading to a Denial-of-Service (DoS) attack, also 
+          known as a `Billion Laughs Attack`. The best defense against XXE is to have an XML parser that      
+          supports disabling DTDs. Limiting the use of external entities from the start can prevent the parser
+          from being used to process untrusted XML files. Reducing dependencies on external resources is also 
+          a good practice for performance reasons. It is difficult to guarantee that even a trusted XML file  
+          on your server or during transmission has not been tampered with by a malicious third-party.        
+          Details: https://sg.run/0zlv                                                                        
+                                                                                                              
+           25┆ XmlReader reader = XmlReader.Create(stream, settings);
+                              
+  [36m[22m[24m  1/test.php [0m
+   ❯❯❱ php.lang.security.xml-external-entities-unsafe-entity-loader.xml-external-entities-unsafe-entity-loader
+          The application is using an XML parser that has not been safely configured. This might lead to XML  
+          External Entity (XXE) vulnerabilities when parsing user-controlled input. An attacker can include   
+          document type definitions (DTDs) which can interact with internal or external hosts. XXE can lead to
+          other vulnerabilities, such as Local File Inclusion (LFI), Remote Code Execution (RCE), and Server- 
+          side request forgery (SSRF), depending on the application configuration. An attacker can also use   
+          DTDs to expand recursively, leading to a Denial-of-Service (DoS) attack, also known as a Billion    
+          Laughs Attack. The best defense against XXE is to have an XML parser that supports disabling DTDs.  
+          Limiting the use of external entities from the start can prevent the parser from being used to      
+          process untrusted XML files. Reducing dependencies on external resources is also a good practice for
+          performance reasons. It is difficult to guarantee that even a trusted XML file on your server or    
+          during transmission has not been tampered with by a malicious third-party.                          
+          Details: https://sg.run/5qPA                                                                        
+                                                                                                              
+           12┆ $document->loadXML($xml, LIBXML_NOENT | LIBXML_DTDLOAD);
+   
+   ❯❯❱ php.lang.security.xml-external-entities-unsafe-parser-flags.xml-external-entities-unsafe-parser-flags
+          The application is using an XML parser that has not been safely configured. This might lead to XML  
+          External Entity (XXE) vulnerabilities when parsing user-controlled input. An attacker can include   
+          document type definitions (DTDs) which can interact with internal or external hosts. XXE can lead to
+          other vulnerabilities, such as Local File Inclusion (LFI), Remote Code Execution (RCE), and Server- 
+          side request forgery (SSRF), depending on the application configuration. An attacker can also use   
+          DTDs to expand recursively, leading to a Denial-of-Service (DoS) attack, also known as a Billion    
+          Laughs Attack. The best defense against XXE is to have an XML parser that supports disabling DTDs.  
+          Limiting the use of external entities from the start can prevent the parser from being used to      
+          process untrusted XML files. Reducing dependencies on external resources is also a good practice for
+          performance reasons. It is difficult to guarantee that even a trusted XML file on your server or    
+          during transmission has not been tampered with by a malicious third-party.                          
+          Details: https://sg.run/GJxp                                                                        
+                                                                                                              
+           12┆ $document->loadXML($xml, LIBXML_NOENT | LIBXML_DTDLOAD);
+   
+    ❯❱ php.laravel.security.laravel-unsafe-entity-loader.laravel-unsafe-entity-loader
+          The application is using an XML parser that has not been safely configured. This might lead to XML  
+          External Entity (XXE) vulnerabilities when parsing user-controlled input. An attacker can include   
+          document type definitions (DTDs) which can interact with internal or external hosts. XXE can lead to
+          other vulnerabilities, such as Local File Inclusion (LFI), Remote Code Execution (RCE), and Server- 
+          side request forgery (SSRF), depending on the application configuration. An attacker can also use   
+          DTDs to expand recursively, leading to a Denial-of-Service (DoS) attack, also known as a Billion    
+          Laughs Attack. The best defense against XXE is to have an XML parser that supports disabling DTDs.  
+          Limiting the use of external entities from the start can prevent the parser from being used to      
+          process untrusted XML files. Reducing dependencies on external resources is also a good practice for
+          performance reasons. It is difficult to guarantee that even a trusted XML file on your server or    
+          during transmission has not been tampered with by a malicious third-party.                          
+          Details: https://sg.run/lePG                                                                        
+                                                                                                              
+           12┆ $document->loadXML($xml, LIBXML_NOENT | LIBXML_DTDLOAD);
+   
+    ❯❱ php.laravel.security.laravel-xml-unsafe-parser-flags.laravel-xml-unsafe-parser-flags
+          The application is using an XML parser that has not been safely configured. This might lead to XML  
+          External Entity (XXE) vulnerabilities when parsing user-controlled input. An attacker can include   
+          document type definitions (DTDs) which can interact with internal or external hosts. XXE can lead to
+          other vulnerabilities, such as Local File Inclusion (LFI), Remote Code Execution (RCE), and Server- 
+          side request forgery (SSRF), depending on the application configuration. An attacker can also use   
+          DTDs to expand recursively, leading to a Denial-of-Service (DoS) attack, also known as a Billion    
+          Laughs Attack. The best defense against XXE is to have an XML parser that supports disabling DTDs.  
+          Limiting the use of external entities from the start can prevent the parser from being used to      
+          process untrusted XML files. Reducing dependencies on external resources is also a good practice for
+          performance reasons. It is difficult to guarantee that even a trusted XML file on your server or    
+          during transmission has not been tampered with by a malicious third-party.                          
+          Details: https://sg.run/YoAo                                                                        
+                                                                                                              
+           12┆ $document->loadXML($xml, LIBXML_NOENT | LIBXML_DTDLOAD);
+                          
+  [36m[22m[24m  2/y.js [0m
+    ❯❱ javascript.express.redos.express-redos.redos
+          The regular expression identified appears vulnerable to Regular Expression Denial of Service (ReDoS)
+          through catastrophic backtracking. If the input is attacker controllable, this vulnerability can    
+          lead to systems being non-responsive or may crash due to ReDoS. Where possible, re-write the regex  
+          so as not to leverage backtracking or use a library that offers default protection against ReDoS.   
+          Details: https://sg.run/2ZLz5                                                                       
+                                                                                                              
+            8┆ let match = r.test(req.params.id);
+   
+    ❯❱ javascript.express.security.audit.xss.direct-response-write.direct-response-write
+          Detected directly writing to a Response object from user-defined input. This bypasses any HTML      
+          escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use
+          'resp.render()' to render safely escaped HTML.                                                      
+          Details: https://sg.run/vzGl                                                                        
+                                                                                                              
+            9┆ res.send(match)
+                             
+  [36m[22m[24m  3/dom.php [0m
+    ❯❱ php.lang.security.taint-unsafe-echo-tag.taint-unsafe-echo-tag
+          Found direct access to a PHP variable wihout HTML escaping inside an inline PHP statement setting   
+          data from `$_REQUEST[...]`. When untrusted input can be used to tamper with a web page rendering, it
+          can lead to a Cross-site scripting (XSS) vulnerability. XSS vulnerabilities occur when untrusted    
+          input executes malicious JavaScript code, leading to issues such as account compromise and sensitive
+          information leakage. To prevent this vulnerability, validate the user input, perform contextual     
+          output encoding or sanitize the input. In PHP you can encode or sanitize user input with            
+          `htmlspecialchars` or use automatic context-aware escaping with a template engine such as Latte.    
+          Details: https://sg.run/RlGe                                                                        
+                                                                                                              
+           11┆ Hi, <?= $_GET['name']; ?>
+                                 
+  [36m[22m[24m  3/example.php [0m
+    ❯❱ php.lang.security.taint-unsafe-echo-tag.taint-unsafe-echo-tag
+          Found direct access to a PHP variable wihout HTML escaping inside an inline PHP statement setting   
+          data from `$_REQUEST[...]`. When untrusted input can be used to tamper with a web page rendering, it
+          can lead to a Cross-site scripting (XSS) vulnerability. XSS vulnerabilities occur when untrusted    
+          input executes malicious JavaScript code, leading to issues such as account compromise and sensitive
+          information leakage. To prevent this vulnerability, validate the user input, perform contextual     
+          output encoding or sanitize the input. In PHP you can encode or sanitize user input with            
+          `htmlspecialchars` or use automatic context-aware escaping with a template engine such as Latte.    
+          Details: https://sg.run/RlGe                                                                        
+                                                                                                              
+            7┆ echo 'Hello, ' . $_GET['name']
+                                
+  [36m[22m[24m  3/express.js [0m
+    ❯❱ javascript.express.security.injection.raw-html-format.raw-html-format
+          User data flows into the host portion of this manually-constructed HTML. This can introduce a Cross-
+          Site-Scripting (XSS) vulnerability if this comes from user-provided input. Consider using a         
+          sanitization library such as DOMPurify to sanitize the HTML within.                                 
+          Details: https://sg.run/5DO3                                                                        
+                                                                                                              
+            6┆ res.send('<h1> Hello :'+ name +"</h1>")
+   
+    ❯❱ javascript.express.security.audit.xss.direct-response-write.direct-response-write
+          Detected directly writing to a Response object from user-defined input. This bypasses any HTML      
+          escaping and may expose your application to a Cross-Site-scripting (XSS) vulnerability. Instead, use
+          'resp.render()' to render safely escaped HTML.                                                      
+          Details: https://sg.run/vzGl                                                                        
+                                                                                                              
+            6┆ res.send('<h1> Hello :'+ name +"</h1>")
+                           
+  [36m[22m[24m  4/aa.js [0m
+    ❯❱ javascript.express.open-redirect-deepsemgrep.open-redirect-deepsemgrep
+          The application builds a URL using user-controlled input which can lead to an open redirect         
+          vulnerability. An attacker can manipulate the URL and redirect users to an arbitrary domain. Open   
+          redirect vulnerabilities can lead to issues such as Cross-site scripting (XSS) or redirecting to a  
+          malicious domain for activities such as phishing to capture users' credentials. To prevent this     
+          vulnerability perform strict input validation of the domain against an allowlist of approved        
+          domains. Notify a user in your application that they are leaving the website. Display a domain where
+          they are redirected to the user. A user can then either accept or deny the redirect to an untrusted 
+          site.                                                                                               
+          Details: https://sg.run/BDbW                                                                        
+                                                                                                              
+           17┆ res.redirect(url);
+                            
+  [36m[22m[24m  4/koa.js [0m
+    ❯❱ javascript.express.open-redirect-deepsemgrep.open-redirect-deepsemgrep
+          The application builds a URL using user-controlled input which can lead to an open redirect         
+          vulnerability. An attacker can manipulate the URL and redirect users to an arbitrary domain. Open   
+          redirect vulnerabilities can lead to issues such as Cross-site scripting (XSS) or redirecting to a  
+          malicious domain for activities such as phishing to capture users' credentials. To prevent this     
+          vulnerability perform strict input validation of the domain against an allowlist of approved        
+          domains. Notify a user in your application that they are leaving the website. Display a domain where
+          they are redirected to the user. A user can then either accept or deny the redirect to an untrusted 
+          site.                                                                                               
+          Details: https://sg.run/BDbW                                                                        
+                                                                                                              
+            8┆ ctx.redirect(url);
+
